@@ -93,18 +93,13 @@
 		</div>
 		<div id="myModal" class="modal" >
 			<div class="modal-content">
-
-				<div class="tab">
-					<button class="tablinks" onclick="openCity(event, 'London')">London</button>
-					<button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-					<button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-				</div>
-
-				<table id="table-sticker">
-
-				</table>
-				<button type="button" onclick="addSticker()">Try it</button>
 				<span class="close" data-content='aaaaa'>&times;</span>
+				<div class="tab">
+					<button class="tablinks" onclick="showImage('onionTable')">Onion</button>
+					<button class="tablinks" onclick="showImage('redTable')">Red FCrab</button>
+					<button class="tablinks" onclick="showImage('milkbottleTable')">Milk Bottle</button>
+					<button class="tablinks" onclick="showImage('facebookTable')">Facebook</button>
+				</div>
 				<p>Some text in the Modal..</p>
 			</div>
 		</div>
@@ -255,13 +250,8 @@
 		'thinking-face_1f914.png','tired-face_1f62b.png','unamused-face_1f612.png','upside-down-face_1f643.png','weary-cat-face_1f640.png','weary-face_1f629.png',
 		'white-frowning-face_2639.png','white-smiling-face_263a.png','winking-face_1f609.png','worried-face_1f61f.png','zipper-mouth-face_1f910.png'
 	]
-	function addSticker() {
-		var table = document.getElementById('table-sticker');
-		var row = table.rows[table.rows.length -1];
-		var cell1 = row.insertCell(1);
-		var cell2 = row.insertCell(2);
-		cell1.innerHTML = 'cell1';
-		cell2.innerHTML = 'cell2';
+	function showImage($value) {
+		console.log($value);
 	}
 </script>
 <style>
@@ -305,5 +295,32 @@
 	/*	width: 40px;*/
 	/*	height: 40px;*/
 	/*}*/
+	.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+	}
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+	/* Create an active/current tablink class */
+	.tab button.active {
+		background-color: #ccc;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+		padding: 6px 12px;
+		border: 1px solid #ccc;
+		border-top: none;
+	}
 </style>
 
