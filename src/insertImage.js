@@ -22,23 +22,25 @@ export default class InsertImage extends Plugin {
                 modal.style.display = "block";
                 const closeBtns = document.getElementsByClassName("close")[0];
 
-
-                // for (let btn of closeBtns) {
                 closeBtns.onclick = function(event, a) {
                     console.log(event, a)
                     modal.style.display = "none";
-                    editor.model.change( writer => {
-                        const imageElement = writer.createElement( 'image', {
-                            src: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'
-                        } );
-                        // Insert the image in the current selection location.
-                        editor.model.insertContent( imageElement, editor.model.document.selection );
-                    } );
                 }
-                //   }
 
+                const imgTable = document.getElementsByClassName('img-sticker');
+                for (let btn of imgTable) {
+                    btn.onclick = function (event, a) {
+                        modal.style.display = "none";
+                        editor.model.change(writer => {
+                            const imageElement = writer.createElement('image', {
+                                src: event.path[0].currentSrc
+                            });
+                            // writer.appendChild( modelFragment, imageElement );
+                            editor.model.insertContent(imageElement, editor.model.document.selection);
+                        });
+                    }
+                }
             } );
-
             return view;
         } );
     }
