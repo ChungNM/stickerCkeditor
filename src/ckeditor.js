@@ -122,7 +122,7 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'imageResize',
 			'|',
-			'linkImage'
+			'linkImage',
 		]
 	},
 	table: {
