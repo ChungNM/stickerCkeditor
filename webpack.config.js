@@ -14,10 +14,6 @@ const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' 
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
 
 module.exports = {
-	node: {
-		fs: 'empty',
-		path: 'empty'
-	},
 	devtool: 'source-map',
 	performance: { hints: false },
 

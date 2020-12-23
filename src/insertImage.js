@@ -1,7 +1,7 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 
-import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
+import imageIcon from '../src/Giggle.svg';
 
 export default class InsertImage extends Plugin {
     init() {
@@ -32,11 +32,18 @@ export default class InsertImage extends Plugin {
                     btn.onclick = function (event, a) {
                         modal.style.display = "none";
                         editor.model.change(writer => {
+
+                            const content = "<img src='" + event.path[0].currentSrc +"'>";
+                            const viewFragment = editor.data.processor.toView( content );
+                            const modelFragment = editor.data.toModel( viewFragment );
+
                             const imageElement = writer.createElement('image', {
                                 src: event.path[0].currentSrc
                             });
-                            // writer.appendChild( modelFragment, imageElement );
-                            editor.model.insertContent(imageElement, editor.model.document.selection);
+                            editor.model.insertContent(modelFragment, editor.model.document.selection);
+
+                            // const insertPosition = editor.model.document.selection.getFirstPosition();
+                            // writer.insertText( ' ', { backgroundImage: "url('../sticker/onion/Onion--8.gif')", width: '50px', height: '50px' }, insertPosition );
                         });
                     }
                 }

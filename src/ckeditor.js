@@ -29,9 +29,6 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import InsertImage from './insertImage.js';
 
-const fs = require('fs');
-const path = require('path');
-
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -145,8 +142,8 @@ if (window.innerWidth <= 768) {
 	stickerModel.style.height = '90%';
 } else
 {
-	stickerModel.style.width = '45%';
-	stickerModel.style.height = '50%';
+	stickerModel.style.width = '50%';
+	stickerModel.style.height = '60%';
 }
 
 let onionTable = [
